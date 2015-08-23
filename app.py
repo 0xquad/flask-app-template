@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 
-import sys
 from flask import Flask, url_for
 from flaskext.genshi import Genshi, render_template
 
@@ -17,8 +16,19 @@ def render(template, **kwargs):
     return render_template(template, kwargs)
 
 
-def is_debug():
-    return len(sys.argv) > 1 and sys.argv[1].lower() == 'debug'
+def run_app(app):
+    from optparse import OptionParser
+    parser = OptionParser()
+    parser.add_option('-v', '--verbose', dest='verbose', default=False,
+                      action='store_true',
+                      help='Turn on debugging')
+    parser.add_option('-p', '--port', dest='port', type=int, default=5000,
+                      help='Specify the server port')
+    parser.add_option('-l', '--listen', dest='listen_addr', default='::1',
+                      help='Specify the listening address')
+    options, args = parser.parse_args()
+    app.run(host=options.listen_addr, port=options.port, debug=options.verbose)
+
 
 
 @app.route('/')
@@ -27,4 +37,4 @@ def home():
 
 
 
-app.run(debug=is_debug())
+run_app(app)
