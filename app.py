@@ -7,6 +7,7 @@ from flaskext.genshi import Genshi, render_template
 
 app = Flask(__name__)
 genshi = Genshi(app)
+genshi.extensions['html'] = 'html5'
 
 
 def render(template, **kwargs):
