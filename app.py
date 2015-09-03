@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 
-from flask import Flask, url_for
+from flask import Flask, url_for, request
 from flaskext.genshi import Genshi, render_template
 
 
