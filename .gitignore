@@ -1,5 +1,5 @@
 bin
-lib
+lib*
 include
 .*.sw?
 pip-selfcheck.json
