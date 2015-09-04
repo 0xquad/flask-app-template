@@ -1,24 +1,13 @@
-#!/usr/bin/env python
+# Run the application
+#
+# Copyright (c) 2015, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
-from flask import Flask, url_for, request
-from flaskext.genshi import Genshi, render_template
-
-
-app = Flask(__name__)
-genshi = Genshi(app)
-genshi.extensions['html'] = 'html5'
-
-
-def render(template, **kwargs):
-    kwargs.update({
-        'static' : lambda res: url_for('static', filename=res)
-    })
-    return render_template(template, kwargs)
+from optparse import OptionParser
+from {{PROJECTNAME}} import app
 
 
 def run_app(app):
-    from optparse import OptionParser
     parser = OptionParser()
     parser.add_option('-d', '--debug', dest='debug', default=False,
                       action='store_true',
@@ -29,13 +18,6 @@ def run_app(app):
                       help='Specify the listening address')
     options, args = parser.parse_args()
     app.run(host=options.listen_addr, port=options.port, debug=options.debug)
-
-
-
-@app.route('/')
-def home():
-    return render('home.html')
-
 
 
 run_app(app)
