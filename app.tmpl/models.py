@@ -10,7 +10,7 @@ from {{PROJECTNAME}} import app
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(
-    os.path.join(app.root_path, '{{PROJECTNAME}}.db'))
+    os.path.join(app.root_path, app.name + '.db'))
 
 db = SQLAlchemy(app)
 
