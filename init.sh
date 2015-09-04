@@ -32,7 +32,7 @@ virtualenv -p python3 .
 . bin/activate
 pip install -r requirements.txt
 # Fix for Python 3
-sed -i 's/\.iteritems/.items/g' lib/*/site-packages/flaskext/genshi.py
+sed -i -e 's/\.iteritems/.items/g' lib/*/site-packages/flaskext/genshi.py
 # Replace placeholders for the real project name
 sed -i -e "s/{{PROJECTNAME}}/$appname/g" $(grep -rl '{{PROJECTNAME}}' --exclude $0)
 
