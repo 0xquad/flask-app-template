@@ -5,7 +5,7 @@
 
 from flask import request, url_for, jsonify
 from flaskext.genshi import Genshi, render_template
-from {{PROJECTNAME}} import app, render
+from {{PROJECTNAME}} import app
 from {{PROJECTNAME}}.models import db
 
 
