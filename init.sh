@@ -22,7 +22,7 @@ set -e
 }
 
 appname=$1
-[[ -z "$appname" -o "$appname" =~ [^a-zA-Z0-9_] ]] && {
+[[ -z "$appname" || "$appname" =~ [^a-zA-Z0-9_] ]] && {
     echo "invalid project name '$appname' (must be alphanum only)"
     exit 1
 }
