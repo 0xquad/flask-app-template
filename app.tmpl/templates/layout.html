@@ -1,0 +1,68 @@
+<!--!
+
+  Rules that define the general web site layout
+
+  +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+  | Header                                                   |
+  |                                                          |
+  +~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+  | Content1                   | Content2                    |
+  |                            |                             |
+  |                            |                             |
+  |                            |                             |
+  |                            |                             |
+  |                            |                             |
+  |                            |                             |
+  |                            |                             |
+  +~~~~~~~~~~~~~~~~~~~~~~~~~~~~+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+  | Footer                                                   |
+  |                                                          |
+  +~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+
+
+-->
+<html xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      py:strip="">
+
+<head py:match="head" py:attrs="select('@*')">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <meta name="copyright" content="Copyright (c) 2015"/>
+  <title py:content="value_of('page_title') or select('title/text()')"></title>
+  <link rel="stylesheet" href="${static('css/foundation.min.css')}"/>
+  <script src="${static('js/vendor/modernizr.js')}"></script>
+${select('*[local-name() != "title"]|text()|comment()')}
+</head>
+
+<body py:match="body" py:attrs="select('@*')">
+
+  <header class="header">
+    <h1 py:content="value_of('page_title') or 'Untitled'">page_title</h1>
+    <nav class="top-bar nav nav-bar" data-topbar="">
+      <ul class="inline-list right">
+        <li>About</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="row body-content">
+${select('*|text()|comment()')}
+  </div>
+
+  <xi:include href="footer.html"><xi:fallback/></xi:include>
+
+
+  <script src="${static('js/vendor/jquery.js')}"></script>
+  <script src="${static('js/foundation.min.js')}"></script>
+  <script>
+    $(document).foundation();
+    var doc = document.documentElement;
+    doc.setAttribute('data-useragent', navigator.userAgent);
+  </script>
+</body>
+
+</html>
+<!--! vim:set ts=2 sw=2 et: -->
