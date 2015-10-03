@@ -37,23 +37,9 @@ ${select('*[local-name() != "title"]|text()|comment()')}
 </head>
 
 <body py:match="body" py:attrs="select('@*')">
-
-  <header class="header">
-    <h1 py:content="value_of('page_title') or 'Untitled'">page_title</h1>
-    <nav class="top-bar nav nav-bar" data-topbar="">
-      <ul class="inline-list right">
-        <li>About</li>
-        <li>Contact</li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="row body-content">
+  <xi:include href="header.html"><xi:fallback/></xi:include>
 ${select('*|text()|comment()')}
-  </div>
-
   <xi:include href="footer.html"><xi:fallback/></xi:include>
-
 
   <script src="${static('js/vendor/jquery.js')}"></script>
   <script src="${static('js/foundation.min.js')}"></script>
