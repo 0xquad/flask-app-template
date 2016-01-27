@@ -1,6 +1,6 @@
 # Application models
 #
-# Copyright (c) 2015, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2016, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
 import os, os.path
@@ -15,12 +15,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(
 db = SQLAlchemy(app)
 
 
-#class MyClass(db.Model):
+#class MyModel(db.Model):
 #    id = db.Column(db.Integer, primary_key=True)
 #    # Quickref:
-#    # types: Integer, String, Text, DateTime, ForeignKey
+#    # types: Integer, String(L), Text, DateTime, ForeignKey('table.col')
 #    # keywords: primary_key, nullable, unique, default
-#    # rels: backref=db.backref('ModelName')
+#    # rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
 #
 #
 #    def __init__(self, ...):
