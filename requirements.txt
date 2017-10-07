@@ -1,4 +1,5 @@
 alembic
+click
 Flask
 Flask-Genshi
 Flask-Migrate
@@ -8,6 +9,8 @@ itsdangerous
 Jinja2
 Mako
 MarkupSafe
+python-dateutil
 python-editor
+six
 SQLAlchemy
 Werkzeug
