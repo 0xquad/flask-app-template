@@ -5,7 +5,8 @@
 
 import os, os.path
 from datetime import datetime
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from {{PROJECTNAME}} import app
 
 
@@ -13,6 +14,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(
     os.path.join(app.root_path, app.name + '.db'))
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 
 #class MyModel(db.Model):
