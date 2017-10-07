@@ -17,12 +17,23 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 
+# Quickref:
+# types: Integer, String(L), Text, DateTime, ForeignKey('table.col')
+# keywords: primary_key, nullable, unique, default
+# rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
+class ID(db.Column):
+    def __init__(self, *args, **kwargs):
+        kwargs.pop('primary_key', None)
+        super().__init__(db.Integer, primary_key=True, *args, **kwargs)
+
+
+class Int(db.Column):
+    def __init__(self, *args, **kwargs):
+        kwargs.pop('nullable', None)
+        super().__init__(db.Integer, nullable=False, *args, **kwargs)
+
 #class MyModel(db.Model):
-#    id = db.Column(db.Integer, primary_key=True)
-#    # Quickref:
-#    # types: Integer, String(L), Text, DateTime, ForeignKey('table.col')
-#    # keywords: primary_key, nullable, unique, default
-#    # rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
+#    id = ID()
 #
 #
 #    def __init__(self, ...):
