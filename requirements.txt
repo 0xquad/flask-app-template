@@ -1,6 +1,7 @@
 alembic
 Flask
 Flask-Genshi
+Flask-Migrate
 Flask-SQLAlchemy
 Genshi
 itsdangerous
