@@ -1,6 +1,6 @@
 # Application models
 #
-# Copyright (c) 2016, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
 import os, os.path
@@ -19,7 +19,7 @@ migrate = Migrate(app, db)
 
 
 # Quickref:
-# types: Integer, String(L), Text, DateTime, ForeignKey('table.col')
+# types: Integer, String(L), Text, DateTime, ForeignKey('table_name.col')
 # keywords: primary_key, nullable, unique, default
 # rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
 class ID(db.Column):
