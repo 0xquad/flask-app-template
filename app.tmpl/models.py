@@ -5,17 +5,24 @@
 
 import os, os.path
 from datetime import datetime
+from sqlalchemy import select
+from sqlalchemy.orm import column_property
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from {{PROJECTNAME}} import app
+from {{PROJECTNAME}} import app, login_manager
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(
-    os.path.join(app.root_path, app.name + '.db'))
+app.config['SQLALCHEMY_DATABASE_URI'] = \
+    'sqlite:///{}'.format(os.path.join(app.root_path, app.name + '.db'))
+#   'mysql+pymysql://root@{}/{}'.format(os.environ['DB_SERVER', 'localhost'], app.name)
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+__all__ = (
+    'db',
+)
 
 
 # Quickref:
