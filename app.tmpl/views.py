@@ -3,10 +3,11 @@
 # Copyright (c) 2015, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
-from flask import request, url_for, jsonify
+from flask import request, url_for, jsonify, redirect, abort
 from flaskext.genshi import Genshi, render_template
+from flask_login import login_user, logout_user, login_required, current_user
 from {{PROJECTNAME}} import app
-from {{PROJECTNAME}}.models import db
+from {{PROJECTNAME}}.models import *
 
 
 genshi = Genshi(app)
