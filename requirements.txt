@@ -1,14 +1,19 @@
 alembic
+bcrypt
+cffi
 click
 Flask
+Flask-Bcrypt
 Flask-Genshi
+Flask-Login
 Flask-Migrate
 Flask-SQLAlchemy
-Genshi
+-e git+https://github.com/edgewall/genshi@f8537623aebe40cb721d73760bcca5a533716aec#egg=Genshi
 itsdangerous
 Jinja2
 Mako
 MarkupSafe
+pycparser
 python-dateutil
 python-editor
 six
