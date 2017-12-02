@@ -49,10 +49,6 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email', None)
         password = request.form.get('password', None)
-            next_url = request.args.get('next', '')
-            if not next_url.startswith('/'):
-                next_url = None
-            return redirect(next_url or url_for('home'))
 
         if login_user(email, password):
             # the 'next' parameter is automatically added to the URL
