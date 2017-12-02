@@ -1,12 +1,18 @@
 # Main application file
 #
-# Copyright (c) 2015, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
+import os
 from flask import Flask
 from flask_login import LoginManager
 app = Flask(__name__)
 app.secret_key = 'default-secret-key'
+
+app.config.from_object('plbackend.config.DefaultConfig')
+if 'PLBACKEND_CONFIG' in os.environ:
+    app.config.from_envvar('PLBACKEND_CONFIG')
+
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
