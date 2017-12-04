@@ -45,7 +45,7 @@ appname=myapp
 virtualenv -p python3 .
 . bin/activate
 pip install -r requirements.txt
-rm -fr pip-selfcheck.json src $(find -name __pycache__)
+rm -fr pip-selfcheck.json $(find -name __pycache__)
 
 # Fix for Python 3
 sed -i -e 's/\.iteritems/.items/g' lib/*/site-packages/flaskext/genshi.py
