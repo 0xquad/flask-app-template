@@ -3,6 +3,9 @@
 # Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>
 #
 FROM python:3.4-alpine
+LABEL maintainer="Alexandre Hamelin <alexandre.hamelin gmail.com>" \
+      copyright="Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>" \
+      license="MIT"
 
 RUN pip install virtualenv
 COPY . /app
