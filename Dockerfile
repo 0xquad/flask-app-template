@@ -2,16 +2,18 @@
 #
 # Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>
 #
-FROM ubuntu
+FROM python:3.4-alpine
 
-ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y python-virtualenv
-RUN useradd -m app
-COPY . /home/app
-RUN chown -R app:$(id -gn app) /home/app
-WORKDIR /home/app
-USER app
-RUN rm -fr .git bin lib* include src
-RUN ./init.sh
+RUN pip install virtualenv
+COPY . /app
+WORKDIR /app
+RUN virtualenv /app
+RUN . bin/activate && \
+    apk --no-cache add git libffi-dev build-base && \
+    pip install -r requirements.txt && \
+    rm -fr pip-selfcheck.json ~/.cache && \
+    apk del git libffi-dev build-base
+RUN sed -i -e 's/\.iteritems/.items/g' lib/*/site-packages/flaskext/genshi.py
+ENV FLASK_DEBUG=${FLASK_DEBUG:-}
 EXPOSE 5000
-CMD . bin/activate && python run.py -dl ::
+CMD . bin/activate && exec flask run -h ::
