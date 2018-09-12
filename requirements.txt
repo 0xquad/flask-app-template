@@ -4,11 +4,14 @@ cffi
 click
 Flask
 Flask-Bcrypt
--e git+https://github.com/vthriller/flask-genshi#egg=Flask-Genshi
+# Markers are not supported for -e URLs yet
+# -e git+https://github.com/vthriller/flask-genshi#egg=Flask-Genshi ;sys_platform != 'win32'
+# -e git+https://github.com/edgewall/genshi#egg=Genshi ;sys_platform != 'win32'
+https://github.com/vthriller/flask-genshi/archive/master.zip#egg=Flask-Genshi
+https://github.com/edgewall/genshi/archive/master.zip#egg=Genshi
 Flask-Login
 Flask-Migrate
 Flask-SQLAlchemy
--e git+https://github.com/edgewall/genshi@f8537623aebe40cb721d73760bcca5a533716aec#egg=Genshi
 itsdangerous
 Jinja2
 Mako
