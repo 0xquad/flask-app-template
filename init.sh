@@ -47,9 +47,6 @@ virtualenv -p python3 .
 pip install -r requirements.txt
 rm -fr pip-selfcheck.json $(find -name __pycache__)
 
-# Fix for Python 3
-sed -i -e 's/\.iteritems/.items/g' lib/*/site-packages/flaskext/genshi.py
-
 cat <<E
 
 

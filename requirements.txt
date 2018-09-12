@@ -4,7 +4,7 @@ cffi
 click
 Flask
 Flask-Bcrypt
-Flask-Genshi
+-e git+https://github.com/vthriller/flask-genshi#egg=Flask-Genshi
 Flask-Login
 Flask-Migrate
 Flask-SQLAlchemy
