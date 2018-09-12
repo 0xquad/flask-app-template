@@ -9,9 +9,9 @@ from flask_login import LoginManager
 app = Flask(__name__)
 app.secret_key = 'default-secret-key'
 
-app.config.from_object('plbackend.config.DefaultConfig')
-if 'PLBACKEND_CONFIG' in os.environ:
-    app.config.from_envvar('PLBACKEND_CONFIG')
+app.config.from_object(app.name + '.config.DefaultConfig')
+if 'APP_CONFIG' in os.environ:
+    app.config.from_envvar('APP_CONFIG')
 
 login_manager = LoginManager()
 login_manager.init_app(app)
