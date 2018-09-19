@@ -8,10 +8,10 @@ Flask-Bcrypt
 # -e git+https://github.com/vthriller/flask-genshi#egg=Flask-Genshi ;sys_platform != 'win32'
 # -e git+https://github.com/edgewall/genshi#egg=Genshi ;sys_platform != 'win32'
 https://github.com/vthriller/flask-genshi/archive/master.zip#egg=Flask-Genshi
-https://github.com/edgewall/genshi/archive/master.zip#egg=Genshi
 Flask-Login
 Flask-Migrate
 Flask-SQLAlchemy
+Genshi
 itsdangerous
 Jinja2
 Mako
