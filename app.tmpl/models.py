@@ -1,6 +1,6 @@
 # Application models
 #
-# Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2018, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
 import os, os.path
@@ -13,9 +13,9 @@ from {{PROJECTNAME}} import app, login_manager
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = \
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI',
     'sqlite:///{}'.format(os.path.join(app.root_path, app.name + '.db'))
-#   'mysql+pymysql://root@{}/{}'.format(os.environ['DB_SERVER', 'localhost'], app.name)
+# or e.g. DB_URI=mysql+pymysql://user:pass@server/dbname
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
