@@ -29,19 +29,9 @@ __all__ = (
 # types: Integer, String(L), Text, DateTime, ForeignKey('table_name.col')
 # keywords: primary_key, nullable, unique, default
 # rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
-class ID(db.Column):
-    def __init__(self, *args, **kwargs):
-        kwargs.pop('primary_key', None)
-        super().__init__(db.Integer, primary_key=True, *args, **kwargs)
-
-
-class Int(db.Column):
-    def __init__(self, *args, **kwargs):
-        kwargs.pop('nullable', None)
-        super().__init__(db.Integer, nullable=False, *args, **kwargs)
 
 #class MyModel(db.Model):
-#    id = ID()
+#    id = db.Column(db.Integer, primary_key=True)
 #
 #
 #    def __init__(self, ...):
