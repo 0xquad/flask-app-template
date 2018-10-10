@@ -1,0 +1,14 @@
+Dockerfile*
+docker-compose*
+bin
+lib*
+include
+init.sh
+**/.*.sw?
+pip-selfcheck.json
+**/__pycache__
+**/*.db
+src
+mysql
+**/config_site.py
+**/*.sql

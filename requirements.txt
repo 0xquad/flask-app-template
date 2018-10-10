@@ -1,12 +1,24 @@
-alembic==0.8.0
-Flask==0.10.1
-Flask-Genshi==0.5.1
-Flask-SQLAlchemy==2.0
-Genshi==0.7
-itsdangerous==0.24
-Jinja2==2.8
-Mako==1.0.1
-MarkupSafe==0.23
-python-editor==0.3
-SQLAlchemy==1.0.8
-Werkzeug==0.10.4
+alembic
+bcrypt
+cffi
+click
+Flask
+Flask-Bcrypt
+# Markers are not supported for -e URLs yet
+# -e git+https://github.com/vthriller/flask-genshi#egg=Flask-Genshi ;sys_platform != 'win32'
+# -e git+https://github.com/edgewall/genshi#egg=Genshi ;sys_platform != 'win32'
+https://github.com/vthriller/flask-genshi/archive/master.zip#egg=Flask-Genshi
+Flask-Login
+Flask-Migrate
+Flask-SQLAlchemy
+Genshi
+itsdangerous
+Jinja2
+Mako
+MarkupSafe
+pycparser
+python-dateutil
+python-editor
+six
+SQLAlchemy
+Werkzeug
