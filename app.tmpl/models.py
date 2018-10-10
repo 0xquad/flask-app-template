@@ -20,7 +20,10 @@ db = SQLAlchemy(app)
 #    # Quickref:
 #    # types: Integer, String(L), Text, DateTime, ForeignKey('table.col')
 #    # keywords: primary_key, nullable, unique, default
-#    # rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
+#    # rels:
+#    #  other = db.relationship('OtherModel',
+#    #                          backref=db.backref('mymodels', lazy='dynamic'))
+#    #  other_id = db.Column(db.Integer, db.ForeignKey('othermodel.id'))
 #
 #
 #    def __init__(self, ...):
