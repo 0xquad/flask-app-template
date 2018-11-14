@@ -57,7 +57,7 @@ Initialization done. Here are your next steps:
 - Define your models in $appname/models.py (sqlalchemy models)
 - Initialize the database: python -c 'from $appname import db; db.create_all()'
 - Run the application:
-    env FLASK_APP=$appname/__init__.py FLASK_ENV=development flask run -h 0.0.0.0
+    env FLASK_APP=$appname/__init__.py FLASK_ENV=development flask run -h ::
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 E
