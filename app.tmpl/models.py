@@ -14,7 +14,7 @@ from {{PROJECTNAME}} import app, login_manager
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI',
-    'sqlite:///{}'.format(os.path.join(app.root_path, app.name + '.db'))
+    'sqlite:///{}'.format(os.path.join(app.root_path, app.name + '.db')))
 # or e.g. DB_URI=mysql+pymysql://user:pass@server/dbname
 
 db = SQLAlchemy(app)
