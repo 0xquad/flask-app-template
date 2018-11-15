@@ -14,7 +14,7 @@ from {{PROJECTNAME}} import app, login_manager
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI',
-    'sqlite:///{}'.format(os.path.join(app.root_path, app.name + '.db')))
+    'sqlite:///{}'.format(os.path.join(os.path.dirname(app.root_path), app.name + '.db')))
 # or e.g. DB_URI=mysql+pymysql://user:pass@server/dbname
 
 db = SQLAlchemy(app)
@@ -28,7 +28,8 @@ __all__ = (
 # Quickref:
 # types: Integer, String(L), Text, DateTime, ForeignKey('table_name.col')
 # keywords: primary_key, nullable, unique, default
-# rels: db.relationship('OtherModel', backref=db.backref('mymodels'))
+# rels: db.relationship('OtherModel', backref=db.backref('mymodels'), lazy='dynamic'))
+# other_id = db.Column(db.Integer, db.ForeignKey('othermodel.id'))
 
 #class MyModel(db.Model):
 #    id = db.Column(db.Integer, primary_key=True)
