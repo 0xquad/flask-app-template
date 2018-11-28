@@ -17,6 +17,7 @@ Jinja2
 Mako
 MarkupSafe
 pycparser
+pymysql
 python-dateutil
 python-editor
 six
