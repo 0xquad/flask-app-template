@@ -1,0 +1,59 @@
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+<!--<![endif]-->
+
+<head xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:og="http://ogp.me/ns#">
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta http-equiv="imagetoolbar" content="no"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,max-scale=1.0"/>
+  <meta name="author" content="Alexandre Hamelin"/>
+  <meta name="copyright" content="Copyright (c) 2018, Alexandre Hamelin"/>
+  <meta name="description" content=""/>
+  <meta name="keywords" content=""/>
+  <meta name="robots" content="all"/>
+  <meta name="DC.identifier" content="http://example.com" />
+  <meta name="DC.creator" lang="en" content="Alexandre Hamelin"/>
+  <meta name="DC.date.created" lang="en" content="YYYY-MM-DD"/>
+  <meta name="DC.date.modifed" lang="en" content="YYYY-MM-DD"/>
+  <meta name="DC.format" lang="en" content="text/html"/>
+  <meta name="DC.language" content="en"/>
+  <meta name="DC.coverage" lang="en" content="CA"/>
+  <meta name="DC.publisher" lang="en" content="Alexandre Hamelin" />
+  <meta property="og:site_name" content="My Project"/>
+  <meta property="og:title" content="My Project Title"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="http://www.example.com/image.svg"/>
+  <meta property="og:url" content="http://www.example.com"/>
+  <title>Untitled page</title>
+  <link rel="home" href="/"/>
+  <link rel="shortcut icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+  <link rel="stylesheet" href="${static('css/foundation.min.css')}"/>
+  <script src="${static('js/vendor/modernizr.js')}"></script>
+</head>
+
+<body>
+
+
+  <script src="${static('js/vendor/jquery.js')}"></script>
+  <script src="${static('js/foundation.min.js')}"></script>
+  <script>
+    $(document).foundation();
+
+    var doc = document.documentElement;
+    doc.setAttribute('data-useragent', navigator.userAgent);
+  </script>
+</body>
+
+</html>
+<!--! vim:set ts=2 sw=2 et: -->
