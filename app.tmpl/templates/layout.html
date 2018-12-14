@@ -1,16 +1,44 @@
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <!--<![endif]-->
 <html xmlns:py="http://genshi.edgewall.org/"
       xmlns:xi="http://www.w3.org/2001/XInclude"
       py:strip="">
 
-<head py:match="head" py:attrs="select('@*')">
+<head xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:og="http://ogp.me/ns#"
+      py:match="head" py:attrs="select('@*')">
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta http-equiv="imagetoolbar" content="no"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content=""/>
-  <meta name="author" content=""/>
-  <meta name="copyright" content="Copyright (c) 2016"/>
+  <meta name="author" content="Alexandre Hamelin"/>
+  <meta name="copyright" content="Copyright (c) 2018, Alexandre Hamelin"/>
+  <meta name="keywords" content=""/>
+  <meta name="robots" content="all"/>
+  <meta name="DC.identifier" content="http://example.com" />
+  <meta name="DC.creator" lang="en" content="Alexandre Hamelin"/>
+  <meta name="DC.date.created" lang="en" content="YYYY-MM-DD"/>
+  <meta name="DC.date.modifed" lang="en" content="YYYY-MM-DD"/>
+  <meta name="DC.format" lang="en" content="text/html"/>
+  <meta name="DC.language" content="en"/>
+  <meta name="DC.coverage" lang="en" content="CA"/>
+  <meta name="DC.publisher" lang="en" content="Alexandre Hamelin" />
+  <meta property="og:site_name" content="My Project"/>
+  <meta property="og:title" content="My Project Title"/>
+  <meta property="og:description" content=""/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="http://www.example.com/image.svg"/>
+  <meta property="og:url" content="http://www.example.com"/>
   <title py:content="value_of('page_title') or select('title/text()')"></title>
+  <link rel="home" href="/"/>
+  <link rel="shortcut icon" href="/favicon.ico"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
   <link rel="stylesheet" href="${static('css/foundation.min.css')}"/>
   <script src="${static('js/vendor/modernizr.js')}"></script>
 ${select('*[local-name() != "title"]|text()|comment()')}
