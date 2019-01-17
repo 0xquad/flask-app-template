@@ -1,6 +1,6 @@
 # Main application file
 #
-# Copyright (c) 2017, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2019, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
 import os
@@ -18,5 +18,5 @@ login_manager.init_app(app)
 login_manager.login_view = 'login'
 
 # Import anything that depended on `app`
-from {{PROJECTNAME}}.views import *
-from {{PROJECTNAME}}.models import *
+from .views import *
+from .models import *

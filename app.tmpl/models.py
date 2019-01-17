@@ -9,7 +9,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import column_property
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from {{PROJECTNAME}} import app, login_manager
+from . import app, login_manager
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
