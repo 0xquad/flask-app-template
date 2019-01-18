@@ -1,0 +1,40 @@
+version: '2.3'
+services:
+    frontend:
+        image: web
+        build:
+            context: web
+            dockerfile: Dockerfile
+            args:
+                - FLASK_APP=frontend
+        networks:
+            - frontend
+            - backend-web
+
+    api:
+        image: app-api
+        build:
+            context: api
+            dockerfile: Dockerfile
+            args:
+                - FLASK_APP=api
+            environment:
+                - DB_URI=mysql+pymysql://app:app@db/app
+        networks:
+            - backend-web
+            - backend-db
+
+    db:
+        image: mysql
+        environment:
+            - MYSQL_RANDOM_ROOT_PASSWORD=yes
+            - MYSQL_DATABASE=app
+            - MYSQL_USER=app
+            - MYSQL_PASSWORD=app
+        networks:
+            - backend-db
+
+networks:
+    frontend:
+    backend-web:
+    backend-db:
