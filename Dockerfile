@@ -14,6 +14,7 @@ RUN apk add -q openssl-dev libffi-dev build-base
 
 COPY . /app
 WORKDIR /app
+# Improvement: don't bake the wheels directory into the image
 RUN [ -d wheels ] || pip wheel -qw wheels -r requirements.txt && rm -f pip-selfcheck.json
 
 #----------------------------------------------------------------------------
