@@ -34,12 +34,12 @@ def home():
 
 
 def validate_user_login(user_id, passwd):
-#   profile = UserProfile.query.filter_by(email_addr=user_id).first()
-#   validated = profile and profile.check_password(passwd)
-#   if validated:
-#       login_user(profile)
-#   return validated
-    pass
+    profile = UserProfile.query.filter_by(email_addr=user_id).first()
+    validated = profile and profile.check_password(passwd)
+    if validated:
+        login_user(profile)
+    return validated
+
 
 def check_safe_url(url):
     pass
