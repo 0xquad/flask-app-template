@@ -33,13 +33,12 @@ def home():
     return render('home.html')
 
 
-def login_user(user_id, passwd):
+def validate_user_login(user_id, passwd):
 #   profile = UserProfile.query.filter_by(email_addr=user_id).first()
-#   if profile and profile.check_password(password):
+#   validated = profile and profile.check_password(passwd)
+#   if validated:
 #       login_user(profile)
-#       return True
-#   else:
-#       return False
+#   return validated
     pass
 
 def check_safe_url(url):
@@ -53,7 +52,7 @@ def login():
         email = request.form.get('email', None)
         password = request.form.get('password', None)
 
-        if login_user(email, password):
+        if validate_user_login(email, password):
             # the 'next' parameter is automatically added to the URL
             # when the user accesses a route with @login_required while
             # not authenticated
