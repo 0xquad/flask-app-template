@@ -22,6 +22,7 @@ migrate = Migrate(app, db)
 
 __all__ = (
     'db',
+    'UserAccount',
 )
 
 
