@@ -45,3 +45,18 @@ __all__ = (
 #
 #    def __repr__(self):
 #        return '<{} {!r}>'.format(self.__class__.__name__, self.id)
+
+
+class UserAccount(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    @property
+    def is_active(self): return True
+    @property
+    def is_authenticated(self): return True
+    def get_id(self, user_id): return self.id
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    return UserAccount.query.get(user_id)
