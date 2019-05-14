@@ -7,7 +7,6 @@ from flask import request, url_for, jsonify, redirect, abort, current_app, sessi
 from flask_genshi import Genshi, render_template
 from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy import literal, text, and_, or_
-from sqlalchemy.sql import literal
 from sqlalchemy.orm.exc import NoResultFound
 from . import app
 from .models import *
