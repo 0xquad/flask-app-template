@@ -2,12 +2,13 @@ alembic
 bcrypt
 cffi
 click
+cryptography
 Flask
 Flask-Bcrypt
 # Markers are not supported for -e URLs yet
 # -e git+https://github.com/vthriller/flask-genshi#egg=Flask-Genshi ;sys_platform != 'win32'
 # -e git+https://github.com/edgewall/genshi#egg=Genshi ;sys_platform != 'win32'
-https://github.com/vthriller/flask-genshi/archive/master.zip#egg=Flask-Genshi
+https://github.com/0xquad/flask-genshi/archive/master.zip#egg=Flask-Genshi
 Flask-Login
 Flask-Migrate
 Flask-SQLAlchemy
