@@ -1,32 +1,40 @@
 # Application views
 #
-# Copyright (c) 2019, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2020, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
-from flask import request, url_for, jsonify, redirect, abort, current_app, session
+import json
+from flask import Blueprint, request, url_for, jsonify, redirect, abort, current_app as app, session
 from flask_genshi import Genshi, render_template
 from flask_login import login_user, logout_user, login_required, current_user
 from sqlalchemy import literal, text, and_, or_
-from sqlalchemy.orm.exc import NoResultFound
-from . import app
+from sqlalchemy.orm.exc import aliased, NoResultFound
 from .models import *
+
+
+app_bp = Blueprint(app.name, app.name, static_folder='static')
 
 
 genshi = Genshi(app)
 genshi.extensions['html'] = 'html5'
 
 
+_orig_url_for = url_for
+def url_for(name, *args, **kwargs):
+    return _orig_url_for(app.name + '.' + name, *args, **kwargs)
+
 
 def render(template, **kwargs):
     """Render a Genshi template with some extra helpers."""
     kwargs.update({
-        'static' : lambda res: url_for('static', filename=res)
+        'static' : lambda res: url_for('static', filename=res),
+        'current_user' : current_user,
     })
     return render_template(template, kwargs)
 
 
 
-@app.route('/')
+@app_bp.route('/')
 def home():
     """Display homepage"""
     return render('home.html')
@@ -43,7 +51,7 @@ def validate_user_login(user_id, passwd):
 def check_safe_url(url):
     pass
 
-@app.route('/login', methods=['GET', 'POST'])
+@app_bp.route('/login', methods=['GET', 'POST'])
 def login():
     email = None
     error = None
@@ -66,7 +74,7 @@ def login():
     return render('login.html', email=email, error=error)
 
 
-@app.route('/logout')
+@app_bp.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('home'))

@@ -1,15 +1,15 @@
 # Application models
 #
-# Copyright (c) 2018, Alexandre Hamelin <alexandre.hamelin gmail.com>
+# Copyright (c) 2020, Alexandre Hamelin <alexandre.hamelin gmail.com>
 
 
 import os, os.path
-from datetime import datetime
 from sqlalchemy import select
 from sqlalchemy.orm import column_property
+from flask import current_app as app
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from . import app, login_manager
+from flask_login import LoginManager
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -19,6 +19,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_URI',
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = f'{app.name}.login'
+
 
 __all__ = (
     'db',
